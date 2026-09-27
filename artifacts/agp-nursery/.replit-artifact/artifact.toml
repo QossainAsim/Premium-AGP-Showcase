@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AGP Nursery Farm"
+description = "A premium, animated nursery website for AGP Nursery Farm in Pattoki, helping customers discover export-grade plants, explore categories, take a plant-match quiz, and order directly through WhatsApp."
+version = "1.0.0"
+id = "artifacts/agp-nursery"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21079
+
+[services.development]
+run = "pnpm --filter @workspace/agp-nursery run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/agp-nursery", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/agp-nursery/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21079"
+BASE_PATH = "/"

@@ -1,0 +1,124 @@
+Build a modern, premium, highly animated website for AGP Nursery Farm — a 
+plant nursery in Pattoki, Pakistan (the country's biggest flower/plant 
+growing hub), known on Instagram as @plants_paragon_pattoki. This should 
+feel alive and emotionally engaging from the first second — think "boutique 
+export-grade nursery with 219K Instagram followers," not "WooCommerce plant 
+store."
+
+POSITIONING
+- Tagline: "Pakistan's No.1 Nursery Platform"
+- Trusted by Landscapers & Exporters — Export-Grade, Mature, Premium Plants
+- Delivers across Pakistan & to the Middle East
+- Government-registered nursery business (Pattoki, District Kasur)
+
+BRAND
+- Colors: warm sunlit greens (#2F5233 dark green, #6B8E4E mid green) with 
+  golden-amber accents (#D9A441) for CTAs, on a soft off-white background 
+  (#FAF8F3). Avoid stark white or corporate blue.
+- Typography: warm serif for headings (Fraunces or Playfair Display), clean 
+  sans-serif for body text.
+- Tone: warm, expert, a little poetic — not salesy.
+
+IMAGES
+- No gray placeholder boxes. Every image slot uses realistic, high-quality, 
+  premium-looking images matching its actual subject (roses look like real 
+  roses, topiary looks like real topiary, etc.) — mature, well-lit, 
+  expensive-looking plants, not staged stock photos.
+- Structure image components so they're easy to swap with real client 
+  photos later.
+
+MOTION (applies everywhere, not just the hero — this is a core requirement)
+- Every section fades/slides in on scroll, staggered by 80-100ms per item 
+  in any grid (category tiles, offer cards, gallery images)
+- Hero background has a slow Ken Burns zoom/pan plus a soft parallax scroll 
+  effect
+- Cards and tiles get a hover lift (scale 1.03x, soft shadow, image zooms 
+  slightly inside its frame)
+- Floating chat button has a subtle idle pulse/breathing animation
+- All animations 200-400ms, smooth and snappy — never slow or laggy
+
+HERO SECTION
+- Full-width, Ken Burns/parallax background of lush greenery
+- Headline: "Your garden is missing something." then "Pattoki's finest 
+  plants, delivered to your door."
+- Subtext: "219,000+ people already follow AGP Nursery Farm. Export-grade, 
+  mature, premium plants — grown in Pattoki, delivered across Pakistan and 
+  the Middle East."
+- Live-counting "219,000+ Followers" animation on load
+- Primary CTA: "Chat to Order on WhatsApp" (wa.me link, amber/gold)
+- Secondary CTA: "Find My Plant" → scrolls to the Plant Match quiz
+
+PLANT MATCH QUIZ — designed as a guided conversation, not a form
+- One question at a time; selecting an answer auto-advances after ~300ms, 
+  no "Next" button
+- Slide/fade transition between questions (current slides out left, next 
+  slides in right); progress bar visibly fills
+- Each answer option has a press animation (scale down/up + highlight + 
+  brief checkmark) on click
+- Between last question and results: a 1-1.5s "Finding your matches..." 
+  state with a small animated sprout/pulsing dots
+- Results reveal with staggered card animation, opening with a personalized 
+  line built from their answers (e.g. "Since you want something flowering 
+  for full sun, here's what we'd recommend:")
+- Ambient subtle background animation inside the quiz panel (drifting leaf 
+  particles or slow gradient shift)
+- Question wording, conversational and warm, not survey-like:
+  - "Picture the spot in your mind — is this plant going indoors or out?"
+  - "Now think about that spot — does the sun really hit it, or is it 
+    mostly shade?"
+  - "Last one — what feeling are you going for? Lush jungle energy, 
+    colorful blooms, or something you barely have to think about?"
+- Each result card has an "Ask About This" WhatsApp button
+
+TRUST BAR
+- "🌍 Pakistan & Middle East Delivery" | "🏆 Trusted by Landscapers & 
+  Exporters" | "📸 219K+ Instagram Community" | "✅ Registered Nursery, 
+  Pattoki" | "💬 WhatsApp Support 7 Days a Week"
+
+SHOP BY CATEGORY (6 tiles, animated hover + scroll-in as above)
+1. Landscaping & Ornamental Trees (topiary, Banta tupairys, Variegated 
+   Tarminalia)
+2. Flowering Trees & Shrubs (Lagerstroemia, seasonal flowers)
+3. Roses (David Austin Roses, local varieties)
+4. Fruit Plants (Papaya, citrus, etc.)
+5. Indoor Plants (Monstera, etc.)
+6. Climbers & Vines (Golden Shower Vine, etc.)
+
+SECOND BANNER (after category grid, before Current Offers)
+- Full-width image (wide nursery/landscaping shot), overlaid with "Trusted 
+  by landscapers and exporters across Pakistan" — breaks up page rhythm
+
+CURRENT OFFERS
+- Styled like their WhatsApp catalog's discount format (strikethrough → 
+  sale price), 4-6 example products, placeholder PKR pricing
+- Each card: "Order on WhatsApp" button, not "Add to Cart"
+
+TRUST / ABOUT SECTION
+- References the nursery's government registration: "A licensed, registered 
+  nursery — not just another WhatsApp seller." (certificate-style image)
+
+PAST PROJECTS / SOCIAL PROOF
+- Gallery of 4-6 real-looking garden/landscaping project photos, labeled 
+  "Recent Landscaping & Garden Transformations"
+- 1-2 short testimonial quotes with customer city (Lahore, Karachi, Middle 
+  East client)
+
+AI CHAT AGENT BUTTON (bottom-right, replacing plain WhatsApp icon)
+- Distinct chat bubble icon, not the WhatsApp logo, labeled with a friendly 
+  assistant name
+- Collapsed for 5s on load, then gently expands: "Looking for something 
+  specific? I can help 🌿" — dismissible, never a blocking modal
+- Opens a simple front-end-only chat panel (placeholder responses for now)
+- Small speaker/mic icon for future voice replies (browser speech synthesis 
+  only for now, no paid voice API)
+
+FOOTER
+- Company/Support links, newsletter signup, social icons (Instagram 
+  prominent), trust badges (Nationwide & Middle East Delivery, Expert 
+  Support, Secure Ordering)
+- Contact: 0322-0721767
+
+GENERAL RULES
+- Every plant CTA is "Order on WhatsApp," never "Add to Cart" — no 
+  checkout/cart on this site
+- Mobile-first: most traffic lands from an Instagram bio link on phone
