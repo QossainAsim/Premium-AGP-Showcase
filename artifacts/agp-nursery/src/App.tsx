@@ -35,6 +35,7 @@ const PHONE = 'tel:+923220721767';
 
 const images = {
   hero: '/images/agp-hero.jpg',
+  sunrise: '/images/agp-sunrise.jpg',
   landscape: '/images/agp-landscape.jpg',
   story: '/images/agp-story.jpg',
   feature: '/images/agp-feature.jpg',
@@ -42,6 +43,15 @@ const images = {
   peony: '/images/agp-peony.jpg',
   hydrangea: '/images/agp-hydrangea.jpg',
   bougainvillea: '/images/agp-bougainvillea.jpg',
+  jasmine: '/images/agp-jasmine.jpg',
+  marigold: '/images/agp-marigold.jpg',
+  orchid: '/images/agp-orchid.jpg',
+  hibiscus: '/images/agp-hibiscus.jpg',
+  dahlia: '/images/agp-dahlia.jpg',
+  gardenia: '/images/agp-gardenia.jpg',
+  projectHotel: '/images/agp-project-hotel.jpg',
+  projectCourtyard: '/images/agp-project-courtyard.jpg',
+  projectRooftop: '/images/agp-project-rooftop.jpg',
 };
 
 type IconType = typeof Leaf;
@@ -79,7 +89,35 @@ const flowers = [
   { name: 'Blue Hydrangea', type: 'Statement shrub', note: 'Full cloud-like heads that bring cool colour to shade.', price: 'From PKR 5,200', image: images.hydrangea, featured: 'Shade lover' },
   { name: 'Pattoki Bougainvillea', type: 'Signature climber', note: 'A generous cascade of colour for walls, gates and terraces.', price: 'From PKR 3,900', image: images.bougainvillea, featured: 'AGP signature' },
   { name: 'Lagerstroemia', type: 'Flowering tree', note: 'A mature canopy with long-lasting summer colour.', price: 'From PKR 8,500', image: images.feature, featured: 'Garden anchor' },
-  { name: 'Jasmine Grandiflora', type: 'Fragrant classic', note: 'Starry white flowers and a scent that carries at dusk.', price: 'From PKR 2,900', image: images.story, featured: 'Evening bloom' },
+  { name: 'Jasmine Grandiflora', type: 'Fragrant classic', note: 'Starry white flowers and a scent that carries at dusk.', price: 'From PKR 2,900', image: images.jasmine, featured: 'Evening bloom' },
+  { name: 'Golden Marigold', type: 'Sun garden annual', note: 'Bright, generous colour that keeps the garden feeling alive.', price: 'From PKR 1,800', image: images.marigold, featured: 'Sunny pick' },
+  { name: 'White Orchid', type: 'Collector indoor', note: 'Clean sculptural blooms for a calm room or shaded veranda.', price: 'From PKR 5,900', image: images.orchid, featured: 'Rare indoor' },
+  { name: 'Scarlet Hibiscus', type: 'Tropical classic', note: 'Large red flowers with the easy confidence of a summer garden.', price: 'From PKR 2,700', image: images.hibiscus, featured: 'Heat lover' },
+  { name: 'Peach Dahlia', type: 'Layered bloom', note: 'A full, warm flower that gives borders a soft focal point.', price: 'From PKR 4,900', image: images.dahlia, featured: 'New arrival' },
+  { name: 'Gardenia Veil', type: 'Fragrant shrub', note: 'Cream flowers, glossy leaves and a perfume made for evenings.', price: 'From PKR 3,600', image: images.gardenia, featured: 'Scented pick' },
+  { name: 'Blush Camellia', type: 'Evergreen shrub', note: 'Polished foliage and quiet blush flowers for a refined border.', price: 'From PKR 4,200', image: images.rose, featured: 'Elegant foliage' },
+  { name: 'French Lavender', type: 'Pollinator plant', note: 'Silver foliage and violet spikes that bring movement to a path.', price: 'From PKR 2,400', image: images.hydrangea, featured: 'Bee friendly' },
+  { name: 'Double Tulip', type: 'Seasonal bulb', note: 'Layered colour for pots, entry tables and small spring moments.', price: 'From PKR 3,200', image: images.peony, featured: 'Seasonal pick' },
+  { name: 'Casa Blanca Lily', type: 'Statement bloom', note: 'Large white flowers with a fresh fragrance and strong presence.', price: 'From PKR 4,700', image: images.jasmine, featured: 'White collection' },
+  { name: 'Gerbera Sunrise', type: 'Cut flower', note: 'A cheerful open bloom for colourful arrangements and tables.', price: 'From PKR 2,100', image: images.dahlia, featured: 'Bright colour' },
+  { name: 'Moonlight Tuberose', type: 'Evening fragrance', note: 'A luminous white flower with a scent that arrives after sunset.', price: 'From PKR 3,800', image: images.jasmine, featured: 'Night garden' },
+  { name: 'Coral Azalea', type: 'Flowering shrub', note: 'Coral clusters for dappled shade and a carefully layered border.', price: 'From PKR 4,400', image: images.bougainvillea, featured: 'Shade colour' },
+  { name: 'Golden Allamanda', type: 'Tropical climber', note: 'Golden trumpets that make walls, pergolas and gates feel generous.', price: 'From PKR 3,500', image: images.bougainvillea, featured: 'Wall trained' },
+  { name: 'Night Blooming Jasmine', type: 'Fragrant climber', note: 'Small white flowers with a memorable scent for warm evenings.', price: 'From PKR 2,800', image: images.gardenia, featured: 'After dark' },
+  { name: 'Blush Ranunculus', type: 'Collector bloom', note: 'Paper-soft petals for a romantic pot, border or cutting garden.', price: 'From PKR 4,800', image: images.peony, featured: 'Soft detail' },
+  { name: 'Scarlet Ixora', type: 'Tropical shrub', note: 'Tight red clusters that handle heat and bring instant rhythm.', price: 'From PKR 2,600', image: images.hibiscus, featured: 'Heat ready' },
+  { name: 'Gardenia Crown', type: 'Mature specimen', note: 'A fuller gardenia for entrances where scent should greet first.', price: 'From PKR 6,200', image: images.gardenia, featured: 'Mature pick' },
+  { name: 'White Mandevilla', type: 'Climbing flower', note: 'Clean white trumpets for trellises, balconies and verandas.', price: 'From PKR 3,700', image: images.bougainvillea, featured: 'Terrace climber' },
+  { name: 'Frangipani Cream', type: 'Flowering tree', note: 'Fragrant cream flowers and sculptural branches for warm gardens.', price: 'From PKR 7,400', image: images.story, featured: 'Tropical tree' },
+  { name: 'Rosa Damascena', type: 'Heritage rose', note: 'A richly scented rose with old-world character and soft colour.', price: 'From PKR 5,400', image: images.rose, featured: 'Heritage pick' },
+];
+
+const fieldProjects = [
+  { title: 'A courtyard with a pulse', city: 'Lahore · DHA', image: images.feature, comment: 'The planting made the courtyard feel finished. Every view now has a little colour and a lot more life.', name: 'Ayesha M.' },
+  { title: 'The hotel arrival', city: 'Islamabad · F-6', image: images.projectHotel, comment: 'AGP gave the entrance the scale it needed. The palms arrived mature, healthy and ready to make an impression.', name: 'Hotel project team' },
+  { title: 'A private garden in layers', city: 'Lahore · Gulberg', image: images.projectCourtyard, comment: 'The team understood how to create privacy without closing the garden in. It feels generous from every room.', name: 'Hassan R.' },
+  { title: 'The terrace that finally breathes', city: 'Karachi · Clifton', image: images.projectRooftop, comment: 'Our rooftop now feels like a real place to live. The plant choices survived the coastal heat and still look considered.', name: 'Bilal R.' },
+  { title: 'A garden made for arrival', city: 'Dubai · UAE', image: images.landscape, comment: 'The export team handled every detail with calm expertise. The planting arrived beautifully prepared and changed the whole approach.', name: 'Noura A.' },
 ];
 
 function scrollToId(id: string) {
@@ -136,7 +174,6 @@ function Header() {
           </button>
         </div>
       </div>
-      <TrustMarquee />
       {open && (
         <nav className="mx-4 rounded-2xl border border-white/15 bg-[hsl(var(--primary))]/95 p-5 shadow-xl backdrop-blur-md md:hidden" data-testid="nav-mobile">
           {links.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className="focus-ring block border-b border-white/10 py-3 text-sm font-semibold text-white/85 last:border-0" data-testid={`link-mobile-${id}`}>{label}</a>)}
@@ -147,23 +184,14 @@ function Header() {
 }
 
 function Hero() {
-  const [followers, setFollowers] = useState(0);
-  useEffect(() => {
-    let frame = 0;
-    const started = performance.now();
-    const tick = (now: number) => {
-      const progress = Math.min((now - started) / 1300, 1);
-      setFollowers(Math.round(219000 * (1 - Math.pow(1 - progress, 3))));
-      if (progress < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, []);
   return (
     <section id="top" className="relative isolate flex min-h-[740px] items-end overflow-hidden bg-[hsl(var(--primary))] pb-16 pt-36 text-white lg:min-h-[840px] lg:pb-24">
       <img src={images.hero} alt="Sunlit path through mature plants at AGP Nursery Farm" className="hero-image absolute inset-0 -z-20 h-full w-full object-cover object-center" />
+      <img src={images.sunrise} alt="" aria-hidden="true" className="hero-sunrise absolute inset-0 -z-[19] h-full w-full object-cover object-center" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(17,45,31,.9)_0%,rgba(17,45,31,.63)_42%,rgba(17,45,31,.15)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[hsl(var(--primary))]/65 via-transparent to-transparent" />
+      <div className="sunrise-glow pointer-events-none absolute left-[58%] top-[22%] -z-10 h-36 w-36 rounded-full bg-[hsl(var(--accent))]/30 blur-3xl sm:h-56 sm:w-56" />
+      <div className="sunrise-caption pointer-events-none absolute right-6 top-32 -z-10 hidden items-center gap-3 font-mono text-[.58rem] uppercase tracking-[.18em] text-white/60 lg:flex"><span className="h-px w-8 bg-[hsl(var(--accent))]" /> First light at the nursery</div>
       <div className="hero-sweep pointer-events-none absolute inset-0 -z-10" />
       <div className="hero-orbit hero-orbit-one pointer-events-none absolute right-[12%] top-[28%] hidden h-28 w-28 rounded-full border border-white/20 lg:block"><span className="hero-orbit-dot absolute -right-1 top-1/2 h-2 w-2 rounded-full bg-[hsl(var(--accent))]" /></div>
       <div className="hero-orbit hero-orbit-two pointer-events-none absolute right-[18%] top-[23%] hidden h-44 w-44 rounded-full border border-white/10 lg:block" />
@@ -183,7 +211,7 @@ function Hero() {
             <button onClick={() => scrollToId('match')} className="focus-ring inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-xs font-bold uppercase tracking-[.08em] text-white transition-colors hover:border-white hover:bg-white/10" data-testid="button-find-plant">Find my plant <ArrowRight size={16} /></button>
           </div>
           <div className="reveal reveal-delay-3 mt-12 flex items-center gap-6 text-white/75">
-            <div><strong className="font-serif text-3xl text-white">{followers.toLocaleString()}+</strong><span className="ml-2 text-xs uppercase tracking-[.12em]">on Instagram</span></div>
+            <div><strong className="font-serif text-3xl text-white">220k+</strong><span className="ml-2 text-xs uppercase tracking-[.12em]">on Instagram</span></div>
             <span className="h-10 w-px bg-white/20" />
             <div className="flex items-center gap-2 text-xs"><BadgeCheck size={16} className="text-[hsl(var(--accent))]" /> Registered nursery</div>
           </div>
@@ -203,7 +231,7 @@ function TrustMarquee() {
     [ShieldCheck, 'Registered nursery'],
     [MessageCircle, 'WhatsApp support'],
   ] as const;
-  return <div className="header-marquee absolute inset-x-0 top-[76px] overflow-hidden border-y border-white/15 bg-[hsl(var(--primary))]/70 py-3 backdrop-blur-md" aria-label="AGP Nursery Farm trust highlights"><div className="marquee-track flex w-max items-center">{[...items, ...items].map(([Icon, title], index) => <span key={`${title}-${index}`} className="flex items-center gap-2 px-5 font-mono text-[.58rem] font-bold uppercase tracking-[.16em] text-white/75 sm:px-8"><Icon size={14} strokeWidth={1.6} className="text-[hsl(var(--accent))]" />{title}<span className="ml-5 text-[hsl(var(--accent))]/70">✦</span></span>)}</div></div>;
+  return <div className="trust-marquee mx-auto max-w-[1400px] overflow-hidden rounded-full border border-[hsl(var(--border))] bg-white py-3 shadow-[0_12px_35px_rgba(32,57,42,.08)]" aria-label="AGP Nursery Farm trust highlights"><div className="marquee-track flex w-max items-center">{[...items, ...items].map(([Icon, title], index) => <span key={`${title}-${index}`} className="flex items-center gap-2 px-5 font-mono text-[.58rem] font-bold uppercase tracking-[.16em] text-[hsl(var(--primary))] sm:px-8"><Icon size={14} strokeWidth={1.6} className="text-[hsl(var(--accent))]" />{title}<span className="ml-5 text-[hsl(var(--accent))]/70">✦</span></span>)}</div></div>;
 }
 
 function SectionHeading({ eyebrow, title, text, light = false }: { eyebrow: string; title: ReactNode; text?: string; light?: boolean }) {
@@ -269,7 +297,7 @@ function Offers() {
 }
 
 function Flowers() {
-  return <section id="flowers" className="flowers-section overflow-hidden bg-[hsl(var(--background))] py-24 lg:py-32"><div className="mx-auto max-w-[1400px] px-5 lg:px-10"><div className="flex flex-col justify-between gap-8 md:flex-row md:items-end"><SectionHeading eyebrow="The flower room" title={<>For the blooms<br /><em>worth making space for.</em></>} text="Our most beautiful flowering plants, from generous everyday colour to collector pieces that make a garden feel rare." /><span className="flex items-center gap-2 pb-1 font-mono text-[.63rem] font-bold uppercase tracking-[.12em] text-[hsl(var(--muted-foreground))]"><Sparkles size={15} className="text-[hsl(var(--accent))]" /> Main collection and collector picks</span></div><div className="flowers-grid mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{flowers.map((flower, index) => <a href={WHATSAPP} target="_blank" rel="noreferrer" key={flower.name} className="flower-card group relative overflow-hidden rounded-2xl bg-[hsl(var(--primary))]" data-testid={`card-flower-${index}`}><div className="flower-image-wrap aspect-[.92] overflow-hidden"><img src={flower.image} alt={`${flower.name} flowering plant at AGP Nursery Farm`} className="flower-image h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary))] via-transparent to-transparent opacity-90" /></div><div className="absolute inset-x-0 bottom-0 p-6 text-white"><span className="flower-tag inline-flex rounded-full border border-[hsl(var(--accent))]/70 bg-[hsl(var(--primary))]/40 px-3 py-1 font-mono text-[.58rem] font-bold uppercase tracking-[.13em] text-[hsl(var(--accent))]">{flower.featured}</span><div className="mt-4 flex items-end justify-between gap-3"><div><span className="font-mono text-[.6rem] uppercase tracking-[.15em] text-white/60">{flower.type}</span><h3 className="mt-1 font-serif text-3xl leading-none">{flower.name}</h3><p className="mt-2 max-w-xs text-xs leading-relaxed text-white/65">{flower.note}</p><span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.08em] text-[hsl(var(--accent))]">{flower.price} <ArrowUpRight size={14} /></span></div><span className="flower-arrow flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30"><ArrowUpRight size={17} /></span></div></div></a>)}</div></div></section>;
+  return <section id="flowers" className="flowers-section overflow-hidden bg-[hsl(var(--background))] py-24 lg:py-32"><div className="mx-auto max-w-[1400px] px-5 lg:px-10"><div className="flex flex-col justify-between gap-8 md:flex-row md:items-end"><SectionHeading eyebrow="The flower room" title={<>For the blooms<br /><em>worth making space for.</em></>} text="Our most beautiful flowering plants, from generous everyday colour to collector pieces that make a garden feel rare." /><span className="flex items-center gap-2 pb-1 font-mono text-[.63rem] font-bold uppercase tracking-[.12em] text-[hsl(var(--muted-foreground))]"><Sparkles size={15} className="text-[hsl(var(--accent))]" /> 26 cultivated picks</span></div><div className="flowers-grid mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{flowers.map((flower, index) => <a href={WHATSAPP} target="_blank" rel="noreferrer" key={flower.name} className="flower-card group relative overflow-hidden rounded-2xl bg-[hsl(var(--primary))]" data-testid={`card-flower-${index}`}><div className="flower-image-wrap aspect-[.92] overflow-hidden"><img src={flower.image} alt={`${flower.name} flowering plant at AGP Nursery Farm`} className="flower-image h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary))] via-transparent to-transparent opacity-90" /></div><div className="absolute inset-x-0 bottom-0 p-6 text-white"><span className="flower-tag inline-flex rounded-full border border-[hsl(var(--accent))]/70 bg-[hsl(var(--primary))]/40 px-3 py-1 font-mono text-[.58rem] font-bold uppercase tracking-[.13em] text-[hsl(var(--accent))]">{flower.featured}</span><div className="mt-4 flex items-end justify-between gap-3"><div><span className="font-mono text-[.6rem] uppercase tracking-[.15em] text-white/60">{flower.type}</span><h3 className="mt-1 font-serif text-3xl leading-none">{flower.name}</h3><p className="mt-2 max-w-xs text-xs leading-relaxed text-white/65">{flower.note}</p><span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.08em] text-[hsl(var(--accent))]">{flower.price} <ArrowUpRight size={14} /></span></div><span className="flower-arrow flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30"><ArrowUpRight size={17} /></span></div></div></a>)}</div></div></section>;
 }
 
 function Story() {
@@ -277,16 +305,7 @@ function Story() {
 }
 
 function Journal() {
-  const entries = [
-    { city: 'Lahore · DHA', quote: 'The palms arrived exactly as promised, mature, beautifully packed, and already changed the whole entrance.', name: 'Ayesha M.' },
-    { city: 'Karachi · Clifton', quote: 'AGP understood what would survive our coastal heat. Our terrace finally feels like a garden, not an afterthought.', name: 'Bilal R.' },
-    { city: 'Dubai · UAE', quote: 'The export team handled every detail with calm expertise. The plants travelled better than most furniture does.', name: 'Noura A.' },
-  ];
-  return <section id="journal" className="bg-[hsl(var(--secondary))] py-24 lg:py-32"><div className="mx-auto max-w-[1400px] px-5 lg:px-10"><div className="flex flex-col justify-between gap-8 md:flex-row md:items-end"><SectionHeading eyebrow="From the field" title={<>A few places<br /><em>we’ve changed.</em></>} text="A plant is never only a plant. It’s the welcome at the door, the shade at 4pm, the view you choose to keep." /><a href="https://www.instagram.com/plants_paragon_pattoki/" target="_blank" rel="noreferrer" className="focus-ring mb-1 inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-[.1em] text-[hsl(var(--primary))] md:self-end" data-testid="link-instagram-journal"><Instagram size={17} /> See more on Instagram <ArrowUpRight size={15} /></a></div><div className="mt-14 grid gap-4 lg:grid-cols-[1.35fr_1fr_1fr]"><div className="relative min-h-[460px] overflow-hidden rounded-2xl bg-[hsl(var(--primary))] lg:row-span-2"><img src={images.feature} alt="Flowering bougainvillea and lemon tree transformation" className="absolute inset-0 h-full w-full object-cover transition duration-700 hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary))]/80 to-transparent" /><div className="absolute bottom-0 p-7 text-white"><span className="font-mono text-[.62rem] uppercase tracking-[.16em] text-[hsl(var(--accent))]">Garden transformation · 01</span><h3 className="mt-3 font-serif text-4xl leading-none">A courtyard<br />with a pulse.</h3></div></div>{journalEntries(entries)}</div></div></section>;
-}
-
-function journalEntries(entries: { city: string; quote: string; name: string }[]) {
-  return entries.map((entry, index) => <article key={entry.city} className={`flex min-h-[220px] flex-col justify-between rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 ${index === 0 ? 'lg:col-span-2' : ''}`} data-testid={`testimonial-${index}`}><div className="flex gap-1 text-[hsl(var(--accent))]">{[0, 1, 2, 3, 4].map(star => <Star key={star} size={13} fill="currentColor" />)}</div><p className="mt-7 max-w-lg font-serif text-2xl leading-[1.05] text-[hsl(var(--primary))]">“{entry.quote}”</p><div className="mt-6 flex items-end justify-between"><span className="font-mono text-[.62rem] font-bold uppercase tracking-[.12em] text-[hsl(var(--muted-foreground))]">{entry.name} · {entry.city}</span><span className="text-[.62rem] font-bold uppercase tracking-[.12em] text-[hsl(var(--accent))]">Verified order</span></div></article>);
+  return <section id="journal" className="bg-[hsl(var(--secondary))] py-24 lg:py-32"><div className="mx-auto max-w-[1400px] px-5 lg:px-10"><div className="flex flex-col justify-between gap-8 md:flex-row md:items-end"><SectionHeading eyebrow="From the field" title={<>A few places<br /><em>we’ve changed.</em></>} text="A plant is never only a plant. It’s the welcome at the door, the shade at 4pm, the view you choose to keep." /><a href="https://www.instagram.com/plants_paragon_pattoki/" target="_blank" rel="noreferrer" className="focus-ring mb-1 inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-[.1em] text-[hsl(var(--primary))] md:self-end" data-testid="link-instagram-journal"><Instagram size={17} /> See more on Instagram <ArrowUpRight size={15} /></a></div><div className="field-project-grid mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-12">{fieldProjects.map((project, index) => <article key={project.title} className={`field-project-card group relative min-h-[360px] overflow-hidden rounded-2xl bg-[hsl(var(--primary))] ${index === 0 ? 'lg:col-span-7 lg:row-span-2 lg:min-h-[620px]' : 'lg:col-span-5'}`} data-testid={`field-project-${index}`}><img src={project.image} alt={`${project.title} landscape design by AGP Nursery Farm`} className="field-project-image absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary))] via-[hsl(var(--primary))]/35 to-transparent" /><div className="relative flex h-full flex-col justify-end p-6 text-white sm:p-7"><div className="flex gap-1 text-[hsl(var(--accent))]">{[0, 1, 2, 3, 4].map(star => <Star key={star} size={13} fill="currentColor" />)}</div><span className="mt-4 font-mono text-[.61rem] font-bold uppercase tracking-[.16em] text-[hsl(var(--accent))]">{project.city}</span><h3 className="mt-2 font-serif text-3xl leading-none sm:text-4xl">{project.title}</h3><blockquote className="mt-3 max-w-xl text-sm leading-relaxed text-white/72">“{project.comment}”</blockquote><span className="mt-4 font-mono text-[.6rem] font-bold uppercase tracking-[.13em] text-white/55">{project.name} · Field note</span></div></article>)}</div></div></section>;
 }
 
 function Assistant() {
@@ -316,7 +335,7 @@ function Home() {
     document.querySelectorAll('[data-reveal]').forEach(element => observer.observe(element));
     return () => observer.disconnect();
   }, []);
-  return <div className="noise min-h-[100dvh] overflow-x-hidden"><Header /><main><Hero /><div data-reveal className="reveal-on-scroll"><PlantMatch /></div><div data-reveal className="reveal-on-scroll"><Categories /></div><div data-reveal className="reveal-on-scroll"><TrustBanner /></div><div data-reveal className="reveal-on-scroll"><Offers /></div><div data-reveal className="reveal-on-scroll"><Flowers /></div><div data-reveal className="reveal-on-scroll"><Story /></div><div data-reveal className="reveal-on-scroll"><Journal /></div></main><Footer /><Assistant /></div>;
+  return <div className="noise min-h-[100dvh] overflow-x-hidden"><Header /><main><Hero /><div className="trust-band px-5 py-6 lg:px-10 lg:py-8"><TrustMarquee /></div><div data-reveal className="reveal-on-scroll"><PlantMatch /></div><div data-reveal className="reveal-on-scroll"><Categories /></div><div data-reveal className="reveal-on-scroll"><TrustBanner /></div><div data-reveal className="reveal-on-scroll"><Offers /></div><div data-reveal className="reveal-on-scroll"><Flowers /></div><div data-reveal className="reveal-on-scroll"><Story /></div><div data-reveal className="reveal-on-scroll"><Journal /></div></main><Footer /><Assistant /></div>;
 }
 
 function Router() {

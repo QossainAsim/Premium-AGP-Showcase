@@ -145,6 +145,10 @@
 @keyframes leaf-float { 0%,100% { transform: translate3d(0, 0, 0) rotate(-8deg); } 50% { transform: translate3d(12px, -22px, 0) rotate(11deg); } }
 @keyframes spark-float { 0%,100% { transform: translateY(0) scale(.8); opacity: .45; } 50% { transform: translateY(-18px) scale(1.35); opacity: 1; } }
 @keyframes image-breathe { 0%,100% { transform: scale(1.04); } 50% { transform: scale(1.1); } }
+@keyframes sunrise-frame { 0%, 38% { opacity: 0; transform: scale(1.08); } 52%, 72% { opacity: .62; transform: scale(1.02); } 88%, 100% { opacity: 0; transform: scale(1.08); } }
+@keyframes sunrise-glow { 0%, 38% { opacity: .05; transform: scale(.7); } 58%, 72% { opacity: .72; transform: scale(1.18); } 92%, 100% { opacity: .05; transform: scale(.7); } }
+@keyframes sunrise-caption { 0%, 40% { opacity: 0; transform: translateY(10px); } 55%, 76% { opacity: 1; transform: translateY(0); } 90%, 100% { opacity: 0; transform: translateY(-8px); } }
+@keyframes field-drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes thinking-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes thinking-pulse { 0%,100% { transform: scale(.72); opacity: .25; } 50% { transform: scale(1.08); opacity: .85; } }
 @keyframes dot-bounce { 0%,80%,100% { transform: translateY(0); opacity: .35; } 40% { transform: translateY(-6px); opacity: 1; } }
@@ -158,8 +162,12 @@
 .reveal-delay-3 { animation-delay: .34s; }
 .assistant-pulse { animation: pulse-ring 2.7s ease-in-out infinite; }
 .botanical-drift { animation: drift 5s ease-in-out infinite; }
-.header-marquee { z-index: 2; }
+.trust-band { background: hsl(var(--background)); }
+.trust-marquee { position: relative; }
 .marquee-track { animation: marquee 28s linear infinite; }
+.hero-sunrise { animation: sunrise-frame 15s ease-in-out infinite; mix-blend-mode: screen; }
+.sunrise-glow { animation: sunrise-glow 15s ease-in-out infinite; }
+.sunrise-caption { animation: sunrise-caption 15s ease-in-out infinite; }
 .hero-sweep { width: 34%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent); transform: skewX(-18deg); animation: hero-sweep 11s ease-in-out infinite; }
 .hero-orbit { animation: orbit 18s linear infinite; }
 .hero-orbit-two { animation-duration: 26s; animation-direction: reverse; }
@@ -192,6 +200,13 @@
 .flower-card:hover .flower-tag { transform: translateY(-4px) rotate(-2deg); background: hsl(var(--accent)); color: hsl(var(--primary-foreground)); }
 .flower-arrow { transition: transform .45s cubic-bezier(.2,.75,.25,1), background-color .45s ease, border-color .45s ease; }
 .flower-card:hover .flower-arrow { transform: rotate(45deg) scale(1.1); border-color: hsl(var(--accent)); background: hsl(var(--accent)); color: hsl(var(--primary)); }
+.field-project-card { animation: field-drift 7s ease-in-out infinite; }
+.field-project-card:nth-child(2) { animation-delay: -1.2s; }
+.field-project-card:nth-child(3) { animation-delay: -2.4s; }
+.field-project-card:nth-child(4) { animation-delay: -3.6s; }
+.field-project-card:nth-child(5) { animation-delay: -4.8s; }
+.field-project-image { transform: scale(1.04); filter: saturate(.88); transition: transform 1s cubic-bezier(.2,.75,.25,1), filter 1s ease; }
+.field-project-card:hover .field-project-image { transform: scale(1.13) rotate(1deg); filter: saturate(1.15); }
 .noise::after { content: ''; position: fixed; pointer-events: none; inset: 0; opacity: .025; z-index: 50; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E"); }
 .focus-ring:focus-visible { outline: 3px solid hsl(var(--accent)); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) {
