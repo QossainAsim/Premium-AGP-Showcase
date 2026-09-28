@@ -68,35 +68,93 @@ const images = {
   projectHotel: '/images/agp-project-hotel.jpg',
   projectCourtyard: '/images/agp-project-courtyard.jpg',
   projectRooftop: '/images/agp-project-rooftop.jpg',
+  bougainvilleaPink: '/images/agp-bougainvillea-pink.jpg',
+  bougainvilleaArch: '/images/agp-bougainvillea-arch.jpg',
+  catLandscapingTrees: '/images/agp-cat-landscaping-trees.jpg',
+  catFloweringTrees: '/images/agp-cat-flowering-trees.jpg',
+  catRoses: '/images/agp-cat-roses.jpg',
+  citrus: '/images/agp-citrus.jpg',
+  courtyard: '/images/agp-courtyard.jpg',
+  dubaiGarden: '/images/agp-dubai-garden.jpg',
+  ficus: '/images/agp-ficus.jpg',
+  fruitPlants: '/images/agp-fruit-plants.jpg',
+  houseplants: '/images/agp-houseplants.jpg',
+  lemonTree: '/images/agp-lemon-tree.jpg',
+  terrace: '/images/agp-terrace.jpg',
 };
 
 type IconType = typeof Leaf;
 
 const categories: { title: string; note: string; icon: IconType; image: string }[] = [
-  { title: 'Landscaping trees', note: 'Shade, structure, instant character', icon: TreePine, image: images.sunrise },
-  { title: 'Flowering trees & shrubs', note: 'Colour that returns every season', icon: Flower2, image: images.gardenia },
-  { title: 'Roses', note: 'Fragrant classics, garden-ready', icon: Sparkles, image: images.rose },
-  { title: 'Fruit plants', note: 'A harvest worth waiting for', icon: Leaf, image: images.feature },
-  { title: 'Indoor plants', note: 'Green calm for considered interiors', icon: Leaf, image: images.orchid },
-  { title: 'Climbers & vines', note: 'Vertical life, beautifully trained', icon: Flower2, image: images.bougainvillea },
+  { title: 'Landscaping trees', note: 'Shade, structure, instant character', icon: TreePine, image: images.catLandscapingTrees },
+  { title: 'Flowering trees & shrubs', note: 'Colour that returns every season', icon: Flower2, image: images.catFloweringTrees },
+  { title: 'Roses', note: 'Fragrant classics, garden-ready', icon: Sparkles, image: images.catRoses },
+  { title: 'Fruit plants', note: 'A harvest worth waiting for', icon: Leaf, image: images.fruitPlants },
+  { title: 'Indoor plants', note: 'Green calm for considered interiors', icon: Leaf, image: images.houseplants },
+  { title: 'Climbers & vines', note: 'Vertical life, beautifully trained', icon: Flower2, image: images.bougainvilleaArch },
 ];
 
-const questions = [
-  { prompt: 'Where will your new plant live?', caption: 'Let’s start with the light it will receive.', options: ['A sunny garden', 'A shaded courtyard', 'Inside my home', 'A balcony or terrace'] },
-  { prompt: 'What kind of feeling are you growing?', caption: 'Every garden has a point of view.', options: ['A grand entrance', 'Flowers and fragrance', 'Food from my garden', 'A green, calm retreat'] },
-  { prompt: 'How quickly should it make an impact?', caption: 'We’ll match you with the right stage of growth.', options: ['I want it mature now', 'A little patience is fine', 'I love watching it grow'] },
+type QuizOption = { label: string; value: string };
+type PlantPick = { name: string; detail: string; image: string; tag: string; places: string[]; moods: string[]; pace: 'mature' | 'young' | 'any' };
+
+const questions: { prompt: string; caption: string; options: QuizOption[] }[] = [
+  { prompt: 'Where will your new plant live?', caption: 'Let\u2019s start with the light it will receive.', options: [
+    { label: 'A sunny garden', value: 'sun' },
+    { label: 'A shaded courtyard', value: 'shade' },
+    { label: 'Inside my home', value: 'indoor' },
+    { label: 'A balcony or terrace', value: 'terrace' },
+  ] },
+  { prompt: 'What kind of feeling are you growing?', caption: 'Every garden has a point of view.', options: [
+    { label: 'A grand entrance', value: 'entrance' },
+    { label: 'Flowers and fragrance', value: 'fragrance' },
+    { label: 'Food from my garden', value: 'fruit' },
+    { label: 'A green, calm retreat', value: 'calm' },
+  ] },
+  { prompt: 'How quickly should it make an impact?', caption: 'We\u2019ll match you with the right stage of growth.', options: [
+    { label: 'I want it mature now', value: 'mature' },
+    { label: 'A little patience is fine', value: 'any' },
+    { label: 'I love watching it grow', value: 'young' },
+  ] },
 ];
 
-const recommendations = [
-  { name: 'Mature Ficus Benjamina', detail: 'A sculptural shade-maker with a naturally full canopy.', image: images.landscape, tag: 'Best for instant structure' },
-  { name: 'Bougainvillea “Pattoki Pink”', detail: 'A generous cascade of colour for walls, gates and terraces.', image: images.feature, tag: 'Best for flowering colour' },
-  { name: 'Meyer Lemon Tree', detail: 'Glossy foliage, fragrant blossom and a harvest to look forward to.', image: images.story, tag: 'Best for a fruitful garden' },
+const picks: PlantPick[] = [
+  { name: 'Mature Ficus Benjamina', detail: 'A sculptural shade-maker with a naturally full canopy.', image: images.ficus, tag: 'Best for instant structure', places: ['sun', 'shade', 'indoor'], moods: ['entrance', 'calm'], pace: 'mature' },
+  { name: 'Lagerstroemia', detail: 'A mature canopy with long-lasting summer colour.', image: images.lagerstroemia, tag: 'Garden anchor', places: ['sun'], moods: ['entrance'], pace: 'mature' },
+  { name: 'Frangipani Cream', detail: 'Fragrant cream flowers and sculptural branches for warm gardens.', image: images.frangipani, tag: 'Tropical tree', places: ['sun', 'terrace'], moods: ['entrance', 'fragrance'], pace: 'mature' },
+  { name: 'Bougainvillea Arch', detail: 'A generous cascade of colour for walls, gates and archways.', image: images.bougainvilleaArch, tag: 'Best for flowering colour', places: ['sun', 'terrace'], moods: ['entrance'], pace: 'any' },
+  { name: 'Pink Bougainvillea', detail: 'Bright papery bracts that turn a plain wall into a feature.', image: images.bougainvilleaPink, tag: 'Wall colour', places: ['sun', 'terrace'], moods: ['entrance', 'calm'], pace: 'young' },
+  { name: 'Gardenia Crown', detail: 'A fuller gardenia for entrances where scent should greet first.', image: images.gardeniaCrown, tag: 'Mature pick', places: ['sun', 'shade'], moods: ['fragrance', 'entrance'], pace: 'mature' },
+  { name: 'Night Blooming Jasmine', detail: 'Small white flowers with a memorable scent for warm evenings.', image: images.nightJasmine, tag: 'After dark', places: ['shade', 'terrace'], moods: ['fragrance'], pace: 'any' },
+  { name: 'Rosa Damascena', detail: 'A richly scented rose with old-world character and soft colour.', image: images.rosaDamascena, tag: 'Heritage pick', places: ['sun'], moods: ['fragrance'], pace: 'any' },
+  { name: 'Blush Camellia', detail: 'Polished foliage and quiet blush flowers for a refined border.', image: images.camellia, tag: 'Elegant foliage', places: ['shade'], moods: ['calm', 'fragrance'], pace: 'any' },
+  { name: 'Coral Azalea', detail: 'Coral clusters for dappled shade and a layered border.', image: images.azalea, tag: 'Shade colour', places: ['shade'], moods: ['calm'], pace: 'young' },
+  { name: 'White Mandevilla', detail: 'Clean white trumpets for trellises, balconies and verandas.', image: images.mandevilla, tag: 'Terrace climber', places: ['terrace'], moods: ['calm', 'fragrance'], pace: 'young' },
+  { name: 'Meyer Lemon Tree', detail: 'Glossy foliage, fragrant blossom and a harvest to look forward to.', image: images.lemonTree, tag: 'Best for a fruitful garden', places: ['sun', 'terrace', 'indoor'], moods: ['fruit', 'fragrance'], pace: 'any' },
+  { name: 'Citrus Collection', detail: 'Three fruiting varieties, mature enough to crop soon.', image: images.citrus, tag: 'Harvest ready', places: ['sun', 'terrace'], moods: ['fruit'], pace: 'mature' },
+  { name: 'Fruit Plant Saplings', detail: 'Young fruit plants to train and watch grow into a harvest.', image: images.fruitPlants, tag: 'Grow your own', places: ['sun', 'terrace'], moods: ['fruit'], pace: 'young' },
+  { name: 'Indoor Plant Corner', detail: 'Easy foliage plants for a calm, well-lit interior.', image: images.houseplants, tag: 'Green calm', places: ['indoor'], moods: ['calm'], pace: 'any' },
+  { name: 'White Orchid', detail: 'Clean sculptural blooms for a calm room or shaded veranda.', image: images.orchid, tag: 'Rare indoor', places: ['indoor', 'shade'], moods: ['calm', 'fragrance'], pace: 'any' },
 ];
+
+function recommend(answers: QuizOption[]) {
+  const [place, mood, pace] = answers;
+  return picks
+    .map((p, i) => {
+      let score = 0;
+      const why: string[] = [];
+      if (place && p.places.includes(place.value)) { score += 3; why.push(place.label.toLowerCase()); }
+      if (mood && p.moods.includes(mood.value)) { score += 3; why.push(mood.label.toLowerCase()); }
+      if (pace) score += pace.value === 'any' ? 1 : p.pace === pace.value ? 2 : p.pace === 'any' ? 1 : 0;
+      return { ...p, score, i, why: why.length ? 'Fits: ' + why.join(' + ') : 'A versatile all-rounder' };
+    })
+    .sort((a, b) => b.score - a.score || a.i - b.i)
+    .slice(0, 3);
+}
 
 const offers = [
-  { name: 'Mature Ficus', from: 'PKR 18,500', sale: 'PKR 14,900', note: 'Limited mature stock', image: images.landscape },
-  { name: 'Bougainvillea Arch', from: 'PKR 12,000', sale: 'PKR 9,500', note: 'Ready to train', image: images.bougainvillea },
-  { name: 'Citrus Collection', from: 'PKR 9,800', sale: 'PKR 7,900', note: 'Three fruiting varieties', image: images.story },
+  { name: 'Mature Ficus', from: 'PKR 18,500', sale: 'PKR 14,900', note: 'Limited mature stock', image: images.ficus },
+  { name: 'Bougainvillea Arch', from: 'PKR 12,000', sale: 'PKR 9,500', note: 'Ready to train', image: images.bougainvilleaArch },
+  { name: 'Citrus Collection', from: 'PKR 9,800', sale: 'PKR 7,900', note: 'Three fruiting varieties', image: images.citrus },
 ];
 
 const flowers = [
@@ -129,11 +187,11 @@ const flowers = [
 ];
 
 const fieldProjects = [
-  { title: 'A courtyard with a pulse', city: 'Lahore · DHA', image: images.feature, comment: 'The planting made the courtyard feel finished. Every view now has a little colour and a lot more life.', name: 'Ayesha M.' },
+  { title: 'A courtyard with a pulse', city: 'Lahore · DHA', image: images.courtyard, comment: 'The planting made the courtyard feel finished. Every view now has a little colour and a lot more life.', name: 'Ayesha M.' },
   { title: 'The hotel arrival', city: 'Islamabad · F-6', image: images.projectHotel, comment: 'AGP gave the entrance the scale it needed. The palms arrived mature, healthy and ready to make an impression.', name: 'Hotel project team' },
   { title: 'A private garden in layers', city: 'Lahore · Gulberg', image: images.projectCourtyard, comment: 'The team understood how to create privacy without closing the garden in. It feels generous from every room.', name: 'Hassan R.' },
-  { title: 'The terrace that finally breathes', city: 'Karachi · Clifton', image: images.projectRooftop, comment: 'Our rooftop now feels like a real place to live. The plant choices survived the coastal heat and still look considered.', name: 'Bilal R.' },
-  { title: 'A garden made for arrival', city: 'Dubai · UAE', image: images.landscape, comment: 'The export team handled every detail with calm expertise. The planting arrived beautifully prepared and changed the whole approach.', name: 'Noura A.' },
+  { title: 'The terrace that finally breathes', city: 'Karachi · Clifton', image: images.terrace, comment: 'Our rooftop now feels like a real place to live. The plant choices survived the coastal heat and still look considered.', name: 'Bilal R.' },
+  { title: 'A garden made for arrival', city: 'Dubai · UAE', image: images.dubaiGarden, comment: 'The export team handled every detail with calm expertise. The planting arrived beautifully prepared and changed the whole approach.', name: 'Noura A.' },
 ];
 
 function scrollToId(id: string) {
@@ -256,14 +314,14 @@ function SectionHeading({ eyebrow, title, text, light = false }: { eyebrow: stri
 
 function PlantMatch() {
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<QuizOption[]>([]);
   const [finding, setFinding] = useState(false);
   const [findingStage, setFindingStage] = useState(0);
   const [complete, setComplete] = useState(false);
   const timeoutRef = useRef<number | undefined>(undefined);
   const findingRef = useRef<number | undefined>(undefined);
   const thinkingSteps = ['Thinking about your space', 'Designing your shortlist', 'Growing the right suggestion'];
-  const choose = (answer: string) => {
+  const choose = (answer: QuizOption) => {
     const next = [...answers.slice(0, step), answer];
     setAnswers(next);
     if (step < questions.length - 1) {
@@ -284,7 +342,8 @@ function PlantMatch() {
     if (findingRef.current) window.clearInterval(findingRef.current);
   }, []);
   const reset = () => { setStep(0); setAnswers([]); setFinding(false); setComplete(false); setFindingStage(0); };
-  const resultContext = answers[1] ? `Since you chose ${answers[1].toLowerCase()}, here is a considered place to begin.` : 'Based on your answers, here is a considered place to begin.';
+  const results = recommend(answers);
+  const resultContext = answers.length ? `Picked for your answers: ${answers.map(a => a.label).join(' / ')}.` : 'Based on your answers, here is a considered place to begin.';
   return (
     <section id="match" className="relative overflow-hidden bg-[hsl(var(--primary))] py-24 text-white lg:py-32">
       <div className="pointer-events-none absolute -right-20 top-20 h-72 w-72 rounded-full border border-white/10 lg:h-[30rem] lg:w-[30rem]" />
@@ -293,7 +352,7 @@ function PlantMatch() {
          <SectionHeading eyebrow="The plant match" title={<>The right plant<br /><em className="text-[hsl(var(--accent))]">changes everything.</em></>} text="Tell us a little about your space. In three quick questions, we’ll point you toward plants that will thrive there, not just look good in a photograph." light />
         <div className="relative min-h-[480px] overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/[.07] p-6 backdrop-blur-sm sm:p-10" data-testid="section-plant-match">
           {!complete && !finding && <div className="flex items-center justify-between"><span className="font-mono text-[.65rem] uppercase tracking-[.15em] text-white/55">Question {step + 1} of {questions.length}</span><div className="flex gap-1.5">{questions.map((_, index) => <span key={index} className={`h-1 w-12 rounded-full transition-colors ${index <= step ? 'bg-[hsl(var(--accent))]' : 'bg-white/20'}`} />)}</div></div>}
-           {finding ? <div className="thinking-state flex min-h-[410px] flex-col items-center justify-center text-center"><div className="thinking-orbit mb-8 flex h-28 w-28 items-center justify-center rounded-full border border-[hsl(var(--accent))]/60 text-[hsl(var(--accent))]"><span className="thinking-ring" /><span className="thinking-ring thinking-ring-two" /><Leaf className="botanical-drift" size={38} strokeWidth={1.2} /></div><div className="thinking-label font-mono text-[.65rem] font-bold uppercase tracking-[.16em] text-[hsl(var(--accent))]" aria-live="polite">{thinkingSteps[findingStage]}</div><h3 className="mt-4 font-serif text-4xl sm:text-5xl">A little garden thinking</h3><div className="thinking-dots mt-5 flex gap-2" aria-hidden="true"><span /><span /><span /></div><p className="mt-4 text-sm text-white/60">Matching light, feeling and the right stage of growth.</p></div> : complete ? <div className="animate-[reveal-up_.6s_ease_both]"><div className="flex items-center gap-2 font-mono text-[.65rem] uppercase tracking-[.15em] text-[hsl(var(--accent))]"><Check size={15} /> Your garden, considered</div><p className="mt-4 max-w-lg text-sm text-white/60">{resultContext}</p><h3 className="mt-3 font-serif text-4xl sm:text-5xl">Three beautiful places to begin.</h3><div className="mt-7 grid gap-3 sm:grid-cols-3">{recommendations.map((item, index) => <div key={item.name} className="group overflow-hidden rounded-xl border border-white/15 bg-white/[.06]"><div className="h-36 overflow-hidden"><img src={item.image} alt={item.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" /></div><div className="p-3"><span className="text-[.61rem] font-bold uppercase tracking-[.08em] text-[hsl(var(--accent))]">{item.tag}</span><h4 className="mt-1 font-serif text-xl leading-none">{item.name}</h4><p className="mt-2 text-[.7rem] leading-snug text-white/55">{item.detail}</p><a href={WHATSAPP} target="_blank" rel="noreferrer" className="focus-ring mt-4 inline-flex items-center gap-1 text-[.64rem] font-bold uppercase tracking-[.08em] text-white" data-testid={`link-match-order-${index}`}>Order on WhatsApp <ArrowUpRight size={13} /></a></div></div>)}</div><button onClick={reset} className="focus-ring mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.1em] text-white/65 hover:text-white" data-testid="button-match-again">Start again <ArrowRight size={14} /></button></div> : <div key={step} className="animate-[reveal-up_.45s_ease_both] pt-14"><span className="text-sm text-white/50">{questions[step].caption}</span><h3 className="mt-3 max-w-lg font-serif text-4xl leading-[.95] sm:text-5xl">{questions[step].prompt}</h3><div className="mt-9 grid gap-3 sm:grid-cols-2">{questions[step].options.map((option, index) => <button key={option} onClick={() => choose(option)} className="focus-ring group flex min-h-16 items-center justify-between rounded-xl border border-white/17 bg-white/[.05] px-5 text-left text-sm text-white/85 transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/15 active:scale-[.97]" data-testid={`button-match-option-${step}-${index}`}><span>{option}</span><ChevronRight size={17} className="text-white/35 transition-transform group-hover:translate-x-1 group-hover:text-[hsl(var(--accent))]" /></button>)}</div></div>}
+           {finding ? <div className="thinking-state flex min-h-[410px] flex-col items-center justify-center text-center"><div className="thinking-orbit mb-8 flex h-28 w-28 items-center justify-center rounded-full border border-[hsl(var(--accent))]/60 text-[hsl(var(--accent))]"><span className="thinking-ring" /><span className="thinking-ring thinking-ring-two" /><Leaf className="botanical-drift" size={38} strokeWidth={1.2} /></div><div className="thinking-label font-mono text-[.65rem] font-bold uppercase tracking-[.16em] text-[hsl(var(--accent))]" aria-live="polite">{thinkingSteps[findingStage]}</div><h3 className="mt-4 font-serif text-4xl sm:text-5xl">A little garden thinking</h3><div className="thinking-dots mt-5 flex gap-2" aria-hidden="true"><span /><span /><span /></div><p className="mt-4 text-sm text-white/60">Matching light, feeling and the right stage of growth.</p></div> : complete ? <div className="animate-[reveal-up_.6s_ease_both]"><div className="flex items-center gap-2 font-mono text-[.65rem] uppercase tracking-[.15em] text-[hsl(var(--accent))]"><Check size={15} /> Your garden, considered</div><p className="mt-4 max-w-lg text-sm text-white/60">{resultContext}</p><h3 className="mt-3 font-serif text-4xl sm:text-5xl">Three beautiful places to begin.</h3><div className="mt-7 grid gap-3 sm:grid-cols-3">{results.map((item, index) => <div key={item.name} className="group overflow-hidden rounded-xl border border-white/15 bg-white/[.06]"><div className="h-36 overflow-hidden"><img src={item.image} alt={item.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" /></div><div className="p-3"><span className="text-[.61rem] font-bold uppercase tracking-[.08em] text-[hsl(var(--accent))]">{item.tag}</span><h4 className="mt-1 font-serif text-xl leading-none">{item.name}</h4><p className="mt-2 text-[.7rem] leading-snug text-white/55">{item.detail}</p><p className="mt-2 text-[.62rem] font-semibold leading-snug text-[hsl(var(--accent))]">{item.why}</p><a href={WHATSAPP} target="_blank" rel="noreferrer" className="focus-ring mt-4 inline-flex items-center gap-1 text-[.64rem] font-bold uppercase tracking-[.08em] text-white" data-testid={`link-match-order-${index}`}>Order on WhatsApp <ArrowUpRight size={13} /></a></div></div>)}</div><button onClick={reset} className="focus-ring mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.1em] text-white/65 hover:text-white" data-testid="button-match-again">Start again <ArrowRight size={14} /></button></div> : <div key={step} className="animate-[reveal-up_.45s_ease_both] pt-14"><span className="text-sm text-white/50">{questions[step].caption}</span><h3 className="mt-3 max-w-lg font-serif text-4xl leading-[.95] sm:text-5xl">{questions[step].prompt}</h3><div className="mt-9 grid gap-3 sm:grid-cols-2">{questions[step].options.map((option, index) => <button key={option.label} onClick={() => choose(option)} className="focus-ring group flex min-h-16 items-center justify-between rounded-xl border border-white/17 bg-white/[.05] px-5 text-left text-sm text-white/85 transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/15 active:scale-[.97]" data-testid={`button-match-option-${step}-${index}`}><span>{option.label}</span><ChevronRight size={17} className="text-white/35 transition-transform group-hover:translate-x-1 group-hover:text-[hsl(var(--accent))]" /></button>)}</div></div>}
         </div>
       </div>
     </section>
