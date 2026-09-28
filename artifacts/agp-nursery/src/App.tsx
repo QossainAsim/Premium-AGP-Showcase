@@ -127,9 +127,7 @@ const flowers = [
   { name: 'Frangipani Cream', type: 'Flowering tree', note: 'Fragrant cream flowers and sculptural branches for warm gardens.', price: 'From PKR 7,400', image: images.frangipani, featured: 'Tropical tree' },
   { name: 'Rosa Damascena', type: 'Heritage rose', note: 'A richly scented rose with old-world character and soft colour.', price: 'From PKR 5,400', image: images.rosaDamascena, featured: 'Heritage pick' },
 ]; or shaded veranda.', price: 'From PKR 5,900', image: images.orchid, featured: 'Rare indoor' },
-  { name: 'Scarlet Hibiscus', type: 'Tropical classic', note: 'Large red flowers with the easy confidence of a summer garden.', price: 'From PKR 2,700', image: images.hibiscus, featured: 'Heat lover' },
-  { name: 'Peach Dahlia', type: 'Layered bloom', note: 'A full, warm flower that gives borders a soft focal point.', price: 'From PKR 4,900', image: images.dahlia, featured: 'New arrival' },
-  { name: 'Gardenia Veil', type: 'Fragrant shrub', note: 'Cream flowers, glossy leaves and a perfume made for evenings.', price: 'From PKR 3,600', image: images.gardenia, featured: 'Scented pick' },
+ 
 ];
 
 const fieldProjects = [
