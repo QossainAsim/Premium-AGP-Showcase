@@ -126,8 +126,6 @@ const flowers = [
   { name: 'White Mandevilla', type: 'Climbing flower', note: 'Clean white trumpets for trellises, balconies and verandas.', price: 'From PKR 3,700', image: images.mandevilla, featured: 'Terrace climber' },
   { name: 'Frangipani Cream', type: 'Flowering tree', note: 'Fragrant cream flowers and sculptural branches for warm gardens.', price: 'From PKR 7,400', image: images.frangipani, featured: 'Tropical tree' },
   { name: 'Rosa Damascena', type: 'Heritage rose', note: 'A richly scented rose with old-world character and soft colour.', price: 'From PKR 5,400', image: images.rosaDamascena, featured: 'Heritage pick' },
-]; or shaded veranda.', price: 'From PKR 5,900', image: images.orchid, featured: 'Rare indoor' },
- 
 ];
 
 const fieldProjects = [
